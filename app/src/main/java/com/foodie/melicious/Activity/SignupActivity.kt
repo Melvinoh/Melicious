@@ -16,7 +16,6 @@ class SignupActivity : BaseActivity(){
     private lateinit var actionBar: ActionBar
     private lateinit var progressDialog :ProgressDialog
     private lateinit var  firebaseAuth: FirebaseAuth
-
     private var username = ""
     private var email =""
     private var password = ""
