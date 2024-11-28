@@ -4,15 +4,27 @@
     <option name="deviceSelectionList">
       <list>
         <PersistentDeviceSelectionData>
-          <option name="api" value="29" />
+          <option name="api" value="31" />
           <option name="brand" value="samsung" />
-          <option name="codename" value="crownqlteue" />
-          <option name="id" value="crownqlteue" />
+          <option name="codename" value="a51" />
+          <option name="id" value="a51" />
           <option name="manufacturer" value="Samsung" />
-          <option name="name" value="Galaxy Note9" />
+          <option name="name" value="Galaxy A51" />
           <option name="screenDensity" value="420" />
-          <option name="screenX" value="2220" />
-          <option name="screenY" value="1080" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2400" />
+          <option name="selected" value="true" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="30" />
+          <option name="brand" value="google" />
+          <option name="codename" value="redfin" />
+          <option name="id" value="redfin" />
+          <option name="manufacturer" value="Google" />
+          <option name="name" value="Pixel 5" />
+          <option name="screenDensity" value="440" />
+          <option name="screenX" value="1080" />
+          <option name="screenY" value="2340" />
           <option name="selected" value="true" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
@@ -47,17 +59,6 @@
           <option name="screenDensity" value="340" />
           <option name="screenX" value="1840" />
           <option name="screenY" value="2944" />
-        </PersistentDeviceSelectionData>
-        <PersistentDeviceSelectionData>
-          <option name="api" value="31" />
-          <option name="brand" value="samsung" />
-          <option name="codename" value="a51" />
-          <option name="id" value="a51" />
-          <option name="manufacturer" value="Samsung" />
-          <option name="name" value="Galaxy A51" />
-          <option name="screenDensity" value="420" />
-          <option name="screenX" value="1080" />
-          <option name="screenY" value="2400" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
@@ -113,6 +114,17 @@
           <option name="screenDensity" value="390" />
           <option name="screenX" value="2076" />
           <option name="screenY" value="2152" />
+        </PersistentDeviceSelectionData>
+        <PersistentDeviceSelectionData>
+          <option name="api" value="29" />
+          <option name="brand" value="samsung" />
+          <option name="codename" value="crownqlteue" />
+          <option name="id" value="crownqlteue" />
+          <option name="manufacturer" value="Samsung" />
+          <option name="name" value="Galaxy Note9" />
+          <option name="screenDensity" value="420" />
+          <option name="screenX" value="2220" />
+          <option name="screenY" value="1080" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
@@ -263,7 +275,7 @@
           <option name="codename" value="q6q" />
           <option name="id" value="q6q" />
           <option name="manufacturer" value="Samsung" />
-          <option name="name" value="SM-F956B" />
+          <option name="name" value="Galaxy Z Fold6" />
           <option name="screenDensity" value="420" />
           <option name="screenX" value="1856" />
           <option name="screenY" value="2160" />
@@ -279,17 +291,6 @@
           <option name="screenX" value="384" />
           <option name="screenY" value="384" />
           <option name="type" value="WEAR_OS" />
-        </PersistentDeviceSelectionData>
-        <PersistentDeviceSelectionData>
-          <option name="api" value="30" />
-          <option name="brand" value="google" />
-          <option name="codename" value="redfin" />
-          <option name="id" value="redfin" />
-          <option name="manufacturer" value="Google" />
-          <option name="name" value="Pixel 5" />
-          <option name="screenDensity" value="440" />
-          <option name="screenX" value="1080" />
-          <option name="screenY" value="2340" />
         </PersistentDeviceSelectionData>
         <PersistentDeviceSelectionData>
           <option name="api" value="34" />
@@ -326,5 +327,6 @@
         </PersistentDeviceSelectionData>
       </list>
     </option>
+    <option name="selectedCloudProject" value="melicious-334bf" />
   </component>
 </project>

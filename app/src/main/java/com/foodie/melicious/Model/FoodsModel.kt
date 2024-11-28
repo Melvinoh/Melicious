@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class FoodsModel(
-    val bestFood: Boolean = false,
+    val bestFood: String = "",
     val categoryId: Int = 0,
     val description: String = "",
     val Id: Int = 0,
@@ -16,7 +16,7 @@ data class FoodsModel(
     var numberInCart: Int = 0
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        bestFood = parcel.readByte() != 0.toByte(),
+        bestFood = parcel.readString().toString(),
         categoryId = parcel.readInt(),
         description = parcel.readString().toString(),
         Id = parcel.readInt(),
@@ -30,7 +30,7 @@ data class FoodsModel(
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.run {
-            writeByte(if (bestFood) 1 else 0)
+            writeString(bestFood)
             writeInt(categoryId)
             writeString(description)
             writeInt(Id)

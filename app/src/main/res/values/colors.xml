@@ -2,8 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="lightGrey">#efefef</color>
+    <color name="lightGrey">#F1F1F1</color>
+    <color name="lightGrey2">#E4E3E3</color>
+    <color name="rippleColor">#FAEBDC</color>
     <color name="darkGrey">#616161</color>
     <color name="orange">#FF7527</color>
-    <color name="Grey">#919191</color>
+    <color name="Grey">#BAB9B9</color>
 </resources>

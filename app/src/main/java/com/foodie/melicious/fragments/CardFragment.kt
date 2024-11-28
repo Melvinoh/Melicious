@@ -29,6 +29,9 @@ class CardFragment : Fragment() {
         binding.update.setOnClickListener{
             displayFragment(ShippingFragment())
         }
+        binding.backBtn.setOnClickListener{
+            requireActivity().supportFragmentManager.popBackStack()
+        }
 
     }
     private fun displayFragment(fragment: Fragment) {

@@ -6,8 +6,6 @@
     android:layout_margin="2dp"
     android:layout_height="wrap_content"
     >
-
-
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/pic"
         android:layout_width="145dp"
@@ -95,7 +93,7 @@
         android:id="@+id/view"
         android:layout_width="160dp"
         android:layout_height="230dp"
-        android:background="@drawable/white_bg"
+        android:background="@drawable/ripple"
         android:elevation="1.3dp"
         android:padding="34dp"
         android:layout_margin="4dp"

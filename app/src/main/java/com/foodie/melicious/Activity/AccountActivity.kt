@@ -6,6 +6,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 import androidx.fragment.app.Fragment
+import com.foodie.melicious.R
 
 import com.foodie.melicious.databinding.ActivityMainBinding
 import com.foodie.melicious.fragments.AccountDetFragment
@@ -27,14 +28,35 @@ class AccountActivity : BaseActivity() {
         initBottomMenu()
 
     }
-
-
     private fun initBottomMenu() {
-        binding.cartBtn.setOnClickListener{
-            startActivity(Intent(this@AccountActivity, MainActivity ::class.java))
-        }
-        binding.homeBtn.setOnClickListener{
-            startActivity(Intent(this@AccountActivity, MainActivity ::class.java ))
+        val bottomNav = binding.bottomNavigation
+        bottomNav.selectedItemId = R.id.account_btn
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home_btn -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    true
+                }
+                R.id.cart_btn -> {
+                    startActivity(Intent(this, CartActivity::class.java))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    true
+                }
+                R.id.favourite_btn -> {
+                    startActivity(Intent(this, FavouritesActivity::class.java))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    true
+                }
+                R.id.account_btn -> {
+                    if (supportFragmentManager.findFragmentById(binding.fragmentContainer.id) !is AccountDetFragment) {
+                        displayFragment(AccountDetFragment())
+                    }
+                    true
+
+                }
+                else -> false
+            }
         }
     }
     private fun displayFragment(fragment: Fragment) {

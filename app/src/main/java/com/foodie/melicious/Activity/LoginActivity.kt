@@ -70,11 +70,24 @@ class LoginActivity : BaseActivity() {
             }else{
 
                 firebaseLogin()
-
-                val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
-                lifecycleScope.launch {
-                    userDB.UserDao().insertUser(userProfile)
+                val firebaseUser = firebaseAuth.currentUser
+                if(firebaseUser != null){
+                    val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
+                    lifecycleScope.launch {
+                        userDB.UserDao().insertUser(userProfile)
+                    }
+                }else{
+                    val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
+                    lifecycleScope.launch {
+                        userDB.UserDao().updateUser(userProfile)
+                    }
                 }
+
+//                val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
+//                lifecycleScope.launch {
+//                    userDB.UserDao().insertUser(userProfile)
+//                    userDB.UserDao().updateUser(userProfile)
+//                }
             }
 
         }

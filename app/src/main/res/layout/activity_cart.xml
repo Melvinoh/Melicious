@@ -17,69 +17,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ripple2"
+                android:padding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/back_btn" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/maven_pro"
+                android:text="My cart"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/backBtn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.695" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="0.5"
+                android:background="?attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/adjust1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
     <ScrollView
         android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:id="@+id/backBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/back" />
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/maven_pro"
-                    android:text="My cart"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
-                    app:layout_constraintStart_toEndOf="@+id/backBtn"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.695" />
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/favorite"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cartList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginVertical="8dp"
                 android:maxHeight="350dp"
-                android:padding="14dp"
-                android:layout_marginVertical="8dp" />
+                android:padding="14dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
@@ -105,9 +120,9 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
                         android:background="@color/lightGrey"
                         android:padding="4dp"
-                        android:layout_margin="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:layout_editor_absoluteX="16dp">
@@ -137,6 +152,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                     <LinearLayout
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
@@ -153,9 +169,9 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/maven_pro"
                             android:text="sub Total"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="16sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/subTotal"
@@ -165,6 +181,7 @@
                             android:text="ksh 850.50"
                             android:textAlignment="textEnd" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
@@ -181,9 +198,9 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/maven_pro"
                             android:text="tax fee"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="16sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/taxFee"
@@ -193,6 +210,7 @@
                             android:text="ksh 620"
                             android:textAlignment="textEnd" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
@@ -209,9 +227,10 @@
                             android:layout_weight="1"
                             android:fontFamily="@font/maven_pro"
                             android:text="delivery"
-                            android:textStyle="bold"
+                            android:textColor="@color/black"
                             android:textSize="16sp"
-                            android:textColor="@color/black" />
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/deliveryPrice"
                             android:layout_width="wrap_content"
@@ -220,6 +239,7 @@
                             android:text="free"
                             android:textAlignment="textEnd" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
@@ -254,6 +274,7 @@
                     </LinearLayout>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/checkout"
                 style="@android:style/Widget.Button"
@@ -261,9 +282,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="36dp"
                 android:background="@drawable/orange_bg"
                 android:fontFamily="@font/maven_pro"
-                android:layout_marginTop="36dp"
                 android:text="checkout"
                 android:textColor="@color/white" />
 
@@ -275,111 +296,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:foregroundGravity="center"
+        app:menu="@menu/bottom_nav_menu"
+        android:background="?android:attr/windowBackground"
+        app:itemRippleColor="@color/Grey"
+        app:itemIconTint="@color/color_selctor"
+        app:itemIconSize="32dp"
+        app:itemPaddingTop="16dp"
+        app:itemTextColor="@color/color_selctor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/homeBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/homeImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/home" />
-
-                <TextView
-                    android:id="@+id/homeTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Home"
-                    android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/cartBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/cartImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/cart" />
-
-                <TextView
-                    android:id="@+id/cartTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="cart"
-                    android:textAlignment="center" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/favBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/favImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/favorite" />
-
-                <TextView
-                    android:id="@+id/favTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="favourite"
-                    android:textAlignment="center" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/accountBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/accountImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/account1" />
-
-                <TextView
-                    android:id="@+id/accountTxt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="account"
-                    android:textAlignment="center" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

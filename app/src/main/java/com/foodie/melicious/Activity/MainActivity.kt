@@ -2,16 +2,15 @@ package com.foodie.melicious.Activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
+
 import androidx.fragment.app.Fragment
-import com.foodie.melicious.ViewModel.MainViewModel
+import com.foodie.melicious.R
 import com.foodie.melicious.databinding.ActivityMainBinding
 import com.foodie.melicious.fragments.HomeFragment
 
 class MainActivity : BaseActivity() {
     private lateinit var  binding: ActivityMainBinding
 
-    private val viewModel:MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,26 +20,52 @@ class MainActivity : BaseActivity() {
         if (savedInstanceState == null) {
             displayFragment(HomeFragment())
         }
-        initBottomMenu()
+       initBottomMenu()
 
+    }
+    override fun onBackPressed() {
+        if (binding.bottomNavigation.selectedItemId != R.id.home_btn) {
+            binding.bottomNavigation.selectedItemId = R.id.home_btn
+        } else {
+            super.onBackPressed()
+        }
     }
 
     private fun initBottomMenu() {
-        binding.cartBtn.setOnClickListener{
-              startActivity(Intent(this@MainActivity, CartActivity::class.java))
-        }
-        binding.accountBtn.setOnClickListener{
-            startActivity(Intent(this@MainActivity,AccountActivity::class.java ))
-        }
-        binding.favBtn.setOnClickListener{
-            startActivity(Intent(this@MainActivity,FavouritesActivity::class.java ))
+        val bottomNav = binding.bottomNavigation
+        bottomNav.selectedItemId = R.id.home_btn
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home_btn -> {
+                    // Navigate to HomeFragment if not already on it
+                    if (supportFragmentManager.findFragmentById(binding.fragmentContainer.id) !is HomeFragment) {
+                        displayFragment(HomeFragment())
+                    }
+                    true
+                }
+                R.id.cart_btn -> {
+                    startActivity(Intent(this, CartActivity::class.java))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    true
+                }
+                R.id.favourite_btn -> {
+                    startActivity(Intent(this, FavouritesActivity::class.java))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    true
+                }
+                R.id.account_btn -> {
+                    startActivity(Intent(this, AccountActivity::class.java))
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    true
+                }
+                else -> false
+            }
         }
     }
 
     private fun displayFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(binding.fragmentContainer.id, fragment)
-
             .commit()
 
     }

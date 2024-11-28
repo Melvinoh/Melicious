@@ -27,13 +27,14 @@
                     android:id="@+id/backBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:background="@drawable/ripple2"
                     android:layout_marginStart="28dp"
+                    android:padding="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/back" />
+                    app:srcCompat="@drawable/back_btn" />
 
                 <TextView
                     android:id="@+id/textView16"

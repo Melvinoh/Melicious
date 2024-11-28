@@ -33,6 +33,10 @@ class CategoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initCategory()
+
+        binding.backBtn.setOnClickListener{
+            requireActivity().supportFragmentManager.popBackStack()
+        }
     }
 
     private fun initCategory(){

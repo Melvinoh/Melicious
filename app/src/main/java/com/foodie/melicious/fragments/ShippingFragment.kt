@@ -20,12 +20,16 @@ class ShippingFragment : Fragment() {
 
         binding = FragmentShippingBinding.inflate(layoutInflater)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.update.setOnClickListener{
             displayFragment(PaymentFragment())
+        }
+        binding.backBtn.setOnClickListener{
+            requireActivity().supportFragmentManager.popBackStack()
         }
     }
     private fun displayFragment(fragment: Fragment) {

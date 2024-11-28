@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.foodie.melicious.Helper.ChangeNumberItemsListener
 import com.foodie.melicious.Helper.FavouriteUtil
 import com.foodie.melicious.Helper.ManagmentCart
 
@@ -18,6 +19,7 @@ class DetailsFragment : Fragment() {
    private lateinit var item : FoodsModel
    private lateinit var managmentCart: ManagmentCart
    private lateinit var FavouriteUtil: FavouriteUtil
+   var changeNumberItemsListener: ChangeNumberItemsListener? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,8 @@ class DetailsFragment : Fragment() {
         getBundle()
     }
     private fun getBundle(){
+        val item2 :ArrayList<FoodsModel>
+
         item =  arguments?.getParcelable("item") ?: throw IllegalArgumentException("Item is missing")
         binding.titleTxt2.text = item.title
         binding.descriptionTxt.text = item.description
@@ -57,6 +61,16 @@ class DetailsFragment : Fragment() {
             .into(binding.detImage)
         binding.backBtn.setOnClickListener{
             requireActivity().supportFragmentManager.popBackStack()
+        }
+//        binding.plus.setOnClickListener{
+//            managmentCart.plusItem(item2,position,object : ChangeNumberItemsListener {
+//                override fun onChanged() {
+//                    changeNumberItemsListener?.onChanged()
+//                }
+//            })
+//        }
+        binding.minus.setOnClickListener{
+
         }
         binding.addToCartBtn.setOnClickListener{
             item.numberInCart = 1

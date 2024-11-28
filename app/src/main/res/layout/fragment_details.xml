@@ -33,20 +33,23 @@
                     android:layout_marginTop="52dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp">
-
                     <ImageView
                         android:id="@+id/backBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/ripple2"
+                        android:padding="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/back" />
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/back_btn" />
 
                     <ImageView
                         android:id="@+id/favBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
                         android:src="@drawable/favorite"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -295,7 +298,7 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
-                            android:id="@+id/imageView8"
+                            android:id="@+id/minus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
@@ -312,13 +315,13 @@
                             android:text="1"
                             android:textAlignment="center"
                             android:textSize="20sp"
-                            app:layout_constraintBottom_toBottomOf="@+id/imageView11"
-                            app:layout_constraintEnd_toStartOf="@+id/imageView11"
-                            app:layout_constraintStart_toEndOf="@+id/imageView8"
+                            app:layout_constraintBottom_toBottomOf="@+id/plus"
+                            app:layout_constraintEnd_toStartOf="@+id/plus"
+                            app:layout_constraintStart_toEndOf="@+id/minus"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/imageView11"
+                            android:id="@+id/plus"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:layout_constraintBottom_toBottomOf="parent"

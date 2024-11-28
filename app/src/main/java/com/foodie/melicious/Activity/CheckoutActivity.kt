@@ -8,7 +8,7 @@ import com.foodie.melicious.databinding.ActivityCheckoutBinding
 import com.foodie.melicious.fragments.CardFragment
 
 
-class CheckoutActivity : AppCompatActivity() {
+class CheckoutActivity :  BaseActivity() {
 
     private lateinit var binding : ActivityCheckoutBinding
 
@@ -20,20 +20,9 @@ class CheckoutActivity : AppCompatActivity() {
         setContentView(binding.root)
         if (savedInstanceState == null) {
             displayFragment(CardFragment())
-        }
-        initBottomMenu()
 
-    }
-    private fun initBottomMenu() {
-        binding.cartBtn.setOnClickListener{
-            startActivity(Intent(this@CheckoutActivity, CartActivity::class.java))
         }
-        binding.accountBtn.setOnClickListener{
-            startActivity(Intent(this@CheckoutActivity,AccountActivity::class.java ))
-        }
-        binding.favBtn.setOnClickListener{
-            startActivity(Intent(this@CheckoutActivity,FavouritesActivity::class.java ))
-        }
+
     }
 
     private fun displayFragment(fragment: Fragment) {

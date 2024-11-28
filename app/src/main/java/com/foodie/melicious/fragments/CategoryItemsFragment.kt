@@ -34,6 +34,9 @@ class CategoryItemsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initFoodItems()
+        binding.backBtn.setOnClickListener{
+            requireActivity().supportFragmentManager.popBackStack()
+        }
     }
 
     private fun initFoodItems() {

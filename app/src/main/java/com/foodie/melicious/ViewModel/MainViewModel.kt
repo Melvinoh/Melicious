@@ -87,13 +87,15 @@ class MainViewModel(application: Application): AndroidViewModel(application)
 
             }
 
+            override fun onCancelled(error: DatabaseError) {
 
+            }
         })
     }
     @SuppressLint("SuspiciousIndentation")
     fun loadPopular(){
         val ref = firebaseDatabase.getReference("Foods")
-        val  query = ref.orderByChild("bestFood").equalTo(true)
+        val  query = ref.orderByChild("bestFood").equalTo("popular")
             query.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                val lists = mutableListOf<FoodsModel>()
@@ -119,7 +121,7 @@ class MainViewModel(application: Application): AndroidViewModel(application)
     }
     fun loadRecommended(){
         val ref = firebaseDatabase.getReference("Foods")
-        val  query = ref.orderByChild("bestFood").equalTo(true)
+        val  query = ref.orderByChild("bestFood").equalTo("recommended")
         query.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val lists = mutableListOf<FoodsModel>()

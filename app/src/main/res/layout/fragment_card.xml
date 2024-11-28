@@ -18,7 +18,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="350dp"
                 android:layout_height="220dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:scaleType="fitCenter"
                 android:src="@drawable/visa"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -38,13 +38,14 @@
                     android:id="@+id/backBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:background="@drawable/ripple2"
                     android:layout_marginStart="28dp"
+                    android:padding="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
-                    app:srcCompat="@drawable/back" />
+                    app:srcCompat="@drawable/back_btn" />
 
                 <TextView
                     android:id="@+id/textView16"
@@ -110,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="18dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical"
                 android:paddingHorizontal="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -296,7 +297,7 @@
                     android:layout_marginTop="15dp"
                     android:background="@drawable/orange_bg"
                     android:fontFamily="@font/maven_pro"
-                    android:text="Update "
+                    android:text="next"
                     android:textColor="@color/white" />
 
 
