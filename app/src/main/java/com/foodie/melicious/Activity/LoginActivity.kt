@@ -30,13 +30,13 @@ class LoginActivity : BaseActivity() {
 
     private lateinit var  progressDialog: Dialog
     private lateinit var firebaseAuth: FirebaseAuth
-    private var email =""
-    private var profilePic= ""
+    private var email = ""
+    private var profilePic = ""
     private var fname = ""
     private var password = ""
     private var mobile = ""
     private var country = ""
-    private var dob = ""
+    private var location = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class LoginActivity : BaseActivity() {
             val userDB: UserDb = UserDb.getDatabase(this)
 
             email = binding.uName.text.toString().trim()
-            password = binding.pWord.toString().trim()
+            password = binding.pWord.text.toString().trim()
 
             if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 binding.uName.error ="invalid email format"
@@ -68,26 +68,11 @@ class LoginActivity : BaseActivity() {
             }else if(TextUtils.isEmpty(password)){
                 binding.pWord.error = "please enter password"
             }else{
-
                 firebaseLogin()
-                val firebaseUser = firebaseAuth.currentUser
-                if(firebaseUser != null){
-                    val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
-                    lifecycleScope.launch {
-                        userDB.UserDao().insertUser(userProfile)
-                    }
-                }else{
-                    val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
-                    lifecycleScope.launch {
-                        userDB.UserDao().updateUser(userProfile)
-                    }
+                val userProfile = UserModel(1,profilePic,fname,email,mobile,country,location)
+                lifecycleScope.launch {
+                    userDB.UserDao().insertUser(userProfile)
                 }
-
-//                val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
-//                lifecycleScope.launch {
-//                    userDB.UserDao().insertUser(userProfile)
-//                    userDB.UserDao().updateUser(userProfile)
-//                }
             }
 
         }
@@ -97,7 +82,7 @@ class LoginActivity : BaseActivity() {
     private fun firebaseLogin() {
 
         progressDialog.show()
-        firebaseAuth.signInWithEmailAndPassword(email ,password)
+        firebaseAuth.signInWithEmailAndPassword(email,password)
             .addOnSuccessListener {
                 progressDialog.dismiss()
                 val firebaseUser = firebaseAuth.currentUser

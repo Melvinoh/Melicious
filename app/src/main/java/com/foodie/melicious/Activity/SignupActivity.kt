@@ -8,8 +8,12 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.foodie.melicious.Helper.UserDb
+import com.foodie.melicious.Model.UserModel
 import com.foodie.melicious.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 
 class SignupActivity : BaseActivity(){
     private lateinit var  binding: ActivitySignupBinding
@@ -21,13 +25,18 @@ class SignupActivity : BaseActivity(){
     private var password = ""
     private var cpassword =""
 
+    private var profilePic= ""
+    private var fname = ""
+    private var mobile = ""
+    private var country = ""
+    private var location = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("please wait")
@@ -44,7 +53,9 @@ class SignupActivity : BaseActivity(){
     }
 
     private fun validateData() {
+        val userDB: UserDb = UserDb.getDatabase(this)
         username = binding.uName.text.toString().trim()
+        fname = username
         email = binding.emailT.text.toString().trim()
         password = binding.pWord.text.toString().trim()
         cpassword = binding.cpWord.text.toString().trim()
@@ -65,6 +76,10 @@ class SignupActivity : BaseActivity(){
             binding.pWord.error = "password must be ateast 6 characters long"
         }else{
             firebaseSignup()
+            val userProfile = UserModel(1,profilePic,fname,email,mobile,country,location)
+            lifecycleScope.launch {
+                userDB.UserDao().insertUser(userProfile)
+            }
         }
     }
 
@@ -78,7 +93,6 @@ class SignupActivity : BaseActivity(){
 
                 Toast.makeText(this ,"account succefully created with email ${email}",Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this ,MainActivity::class.java))
-
             }
             .addOnFailureListener{ e ->
                 progressDialog.dismiss()

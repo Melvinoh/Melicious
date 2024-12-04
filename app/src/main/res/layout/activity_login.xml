@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/maven_pro"
-                android:text="username"
+                android:text="Email address"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold"

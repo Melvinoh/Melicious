@@ -98,8 +98,8 @@ class EditProfileFragment : Fragment() {
         val fname = binding.fName.text.toString().trim()
         val email = binding.emailEt.text.toString().trim()
         val mobile = binding.mobileEt.text.toString().trim()
-        val country = binding.countryEt.toString().trim()
-        val dob = binding.dobEt.toString().trim()
+        val country = binding.countryEt.text.toString().trim()
+        val location = binding.dobEt.text.toString().trim()
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.emailEt.error ="invalid email format"
@@ -111,7 +111,7 @@ class EditProfileFragment : Fragment() {
             binding.fName.error = "please enter name"
             return
         }
-        val userProfile = UserModel(1,profilePic,fname,email,mobile,country,dob)
+        val userProfile = UserModel(1,profilePic,fname,email,mobile,country,location)
 
         lifecycleScope.launch {
             userDB.UserDao().updateUser(userProfile)

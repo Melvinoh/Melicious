@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/imageView10"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_width="412dp"
+            android:layout_height="240dp"
             android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -88,6 +88,7 @@
             android:id="@+id/scrollView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="78dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

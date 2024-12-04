@@ -32,7 +32,7 @@ class SliderAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SliderViewholder {
 
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.slider_item_container,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_slider_item,parent,false)
         return SliderViewholder(view)
 
     }

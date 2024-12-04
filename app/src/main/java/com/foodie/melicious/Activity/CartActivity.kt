@@ -39,6 +39,13 @@ class CartActivity :  BaseActivity() {
     private fun initBottomMenu() {
         val bottomNav = binding.bottomNavigation
         bottomNav.selectedItemId = R.id.cart_btn
+
+        bottomNav.setOnApplyWindowInsetsListener { view, insets ->
+            val systemBarsInsets = insets.systemGestureInsets
+            view.setPadding(0, 0, 0, systemBarsInsets.bottom + 10) // 16dp margin
+            insets
+        }
+
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home_btn -> {

@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.foodie.melicious.Model.UserModel
 
-@Database(entities = [UserModel::class], version = 1)
+@Database(entities = [UserModel::class], version = 2)
 abstract class UserDb : RoomDatabase() {
 
     abstract fun UserDao(): UserDao
