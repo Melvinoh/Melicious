@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-11-05T14:14:56.316680200Z">
+        <DropdownSelection timestamp="2024-12-05T15:33:17.466215500Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Mturee\.android\avd\note9_pro.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Mturee\.android\avd\infinix_API_31.avd" />
             </handle>
           </Target>
         </DropdownSelection>

@@ -1,5 +1,7 @@
 package com.foodie.melicious.fragments
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,15 +10,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
+import com.foodie.melicious.Activity.LoginActivity
 import com.foodie.melicious.R
 import com.foodie.melicious.ViewModel.MainViewModel
 import com.foodie.melicious.databinding.FragmentAccountDetBinding
 import com.foodie.melicious.databinding.FragmentHomeBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class AccountDetFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
     private lateinit var binding: FragmentAccountDetBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
 
 
@@ -36,6 +41,9 @@ class AccountDetFragment : Fragment() {
         binding.account.setOnClickListener{
             displayFragment(EditProfileFragment())
         }
+        binding.logout.setOnClickListener{
+            logoutUser()
+        }
 
         initProfile()
 
@@ -51,12 +59,11 @@ class AccountDetFragment : Fragment() {
 
                      if (!user?.profileImgUri.isNullOrEmpty()) {
                          Glide.with(this)
-                             .load(Uri.parse(user?.profileImgUri)) // Replace with Glide for better handling
-                             .placeholder(R.drawable.default_profile_image) // optional placeholder
-                             .error(R.drawable.default_profile_image) // optional error image
+                             .load(Uri.parse(user?.profileImgUri))
+                             .placeholder(R.drawable.default_profile_image)
+                             .error(R.drawable.default_profile_image)
                              .into(binding.profilePic1)
                      } else {
-
                          binding.profilePic1.setImageResource(R.drawable.default_profile_image)
                      }
                  }
@@ -71,6 +78,19 @@ class AccountDetFragment : Fragment() {
             .replace(R.id.fragment_container, fragment)//this container is in main activity
             .addToBackStack("null")
             .commit()
+    }
+    private fun logoutUser() {
+
+        FirebaseAuth.getInstance().signOut()
+
+        val sharedPreferences = requireContext().getSharedPreferences("userDb", Context.MODE_PRIVATE)
+        sharedPreferences.edit().clear().apply()
+
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+
+        requireActivity().finish()
     }
 
 

@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_margin="12dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -59,6 +59,7 @@
             android:background="@drawable/orange_bd"
             android:drawableStart="@drawable/outline_search_24"
             android:drawablePadding="8dp"
+            android:layout_marginVertical="8dp"
             android:drawableTintMode="src_in"
             android:hint="@string/search_anything"
             android:inputType="text"
@@ -70,7 +71,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="8dp"
-            android:layout_marginTop="28dp">
+            android:layout_marginTop="8dp"
+            android:paddingBottom="130dp">
 
             <LinearLayout
                 android:layout_width="match_parent"

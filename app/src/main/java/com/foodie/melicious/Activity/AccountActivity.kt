@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 import androidx.fragment.app.Fragment
 import com.foodie.melicious.R
@@ -32,9 +34,9 @@ class AccountActivity : BaseActivity() {
         val bottomNav = binding.bottomNavigation
         bottomNav.selectedItemId = R.id.account_btn
 
-        bottomNav.setOnApplyWindowInsetsListener { view, insets ->
-            val systemBarsInsets = insets.systemGestureInsets
-            view.setPadding(0, 0, 0, systemBarsInsets.bottom + 10) // 16dp margin
+        ViewCompat.setOnApplyWindowInsetsListener(bottomNav) { view, insets ->
+            val gestureInsets = insets.getInsets(WindowInsetsCompat.Type.systemGestures())
+            view.setPadding(0, 0, 0, gestureInsets.bottom)
             insets
         }
 

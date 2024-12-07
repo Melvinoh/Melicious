@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.foodie.melicious.Adaptor.CartAdapter
@@ -40,11 +42,12 @@ class CartActivity :  BaseActivity() {
         val bottomNav = binding.bottomNavigation
         bottomNav.selectedItemId = R.id.cart_btn
 
-        bottomNav.setOnApplyWindowInsetsListener { view, insets ->
-            val systemBarsInsets = insets.systemGestureInsets
-            view.setPadding(0, 0, 0, systemBarsInsets.bottom + 10) // 16dp margin
+        ViewCompat.setOnApplyWindowInsetsListener(bottomNav) { view, insets ->
+            val gestureInsets = insets.getInsets(WindowInsetsCompat.Type.systemGestures())
+            view.setPadding(0, 0, 0, gestureInsets.bottom)
             insets
         }
+
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

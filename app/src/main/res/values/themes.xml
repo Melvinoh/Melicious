@@ -10,7 +10,12 @@
     </style>
     <style name="circleImageView">
         <item name="cornerFamily"> rounded</item>
-        <item name="cornerSize">15dp</item>
+        <item name="cornerSize">20dp</item>
+        <item name="backgroundColor"> @color/white</item>
+    </style>
+    <style name="circleMediumView">
+        <item name="cornerFamily"> rounded</item>
+        <item name="cornerSize">50dp</item>
         <item name="backgroundColor"> @color/white</item>
     </style>
     <style name="circleBigView">

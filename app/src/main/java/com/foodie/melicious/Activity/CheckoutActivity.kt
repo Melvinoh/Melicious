@@ -1,11 +1,9 @@
 package com.foodie.melicious.Activity
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.foodie.melicious.databinding.ActivityCheckoutBinding
-import com.foodie.melicious.fragments.CardFragment
+import com.foodie.melicious.fragments.CheckoutFragment
 
 
 class CheckoutActivity :  BaseActivity() {
@@ -19,15 +17,13 @@ class CheckoutActivity :  BaseActivity() {
 
         setContentView(binding.root)
         if (savedInstanceState == null) {
-            displayFragment(CardFragment())
-
+            displayFragment(CheckoutFragment())
         }
-
     }
-
     private fun displayFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(binding.fragmentContainer.id, fragment)
+            .replace(binding.fragmentContainer1.id, fragment)
+            .addToBackStack(null)
             .commit()
     }
 

@@ -74,7 +74,6 @@ class LoginActivity : BaseActivity() {
                     userDB.UserDao().insertUser(userProfile)
                 }
             }
-
         }
 
     }

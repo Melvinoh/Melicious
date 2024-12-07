@@ -2,6 +2,10 @@ package com.foodie.melicious.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.ViewGroup
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updateLayoutParams
 
 import androidx.fragment.app.Fragment
 import com.foodie.melicious.R
@@ -35,11 +39,11 @@ class MainActivity : BaseActivity() {
         val bottomNav = binding.bottomNavigation
         bottomNav.selectedItemId = R.id.home_btn
 
-//        bottomNav.setOnApplyWindowInsetsListener { view, insets ->
-//            val systemBarsInsets = insets.systemGestureInsets
-//            view.setPadding(0, 0, 0, systemBarsInsets.bottom + 1) // 16dp margin
-//            insets
-//        }
+        ViewCompat.setOnApplyWindowInsetsListener(bottomNav) { view, insets ->
+            val gestureInsets = insets.getInsets(WindowInsetsCompat.Type.systemGestures())
+            view.setPadding(0, 0, 0, gestureInsets.bottom)
+            insets
+        }
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {

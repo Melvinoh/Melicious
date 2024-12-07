@@ -43,6 +43,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
             android:name=".Activity.BaseActivity"
             android:exported="false" />
         <activity

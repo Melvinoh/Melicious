@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 
 import android.view.ViewGroup
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -146,6 +147,7 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
 
     private fun banners(it:List<SliderModel>) {
         binding.ViewPager2.adapter = SliderAdapter(it, binding.ViewPager2)

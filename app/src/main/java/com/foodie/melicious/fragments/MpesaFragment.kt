@@ -1,32 +1,29 @@
 package com.foodie.melicious.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.Fragment
 import com.foodie.melicious.R
-import com.foodie.melicious.ViewModel.MainViewModel
-import com.foodie.melicious.databinding.FragmentCardBinding
-import com.foodie.melicious.databinding.FragmentHomeBinding
+import com.foodie.melicious.databinding.FragmentMpesaBinding
 
 
-class CardFragment : Fragment() {
-    private lateinit var binding: FragmentCardBinding
+class MpesaFragment : Fragment() {
+
+    private lateinit var  binding : FragmentMpesaBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentCardBinding.inflate(layoutInflater)
-        return (binding.root)
+    ): View? {
+        binding = FragmentMpesaBinding.inflate(layoutInflater,container,false)
+        return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.update.setOnClickListener{
+        binding.next.setOnClickListener{
             displayFragment(ShippingFragment())
         }
     }
@@ -36,4 +33,5 @@ class CardFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
+
 }

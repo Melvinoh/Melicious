@@ -12,5 +12,5 @@ class UserModel(
     @ColumnInfo(name = "email")val emailAddress : String,
     @ColumnInfo(name = "mobile")val mobile : String,
     @ColumnInfo(name = "country")val country : String,
-    @ColumnInfo(name = "location")val dateOfBirth : String
+    @ColumnInfo(name = "location")val location1 : String
 )

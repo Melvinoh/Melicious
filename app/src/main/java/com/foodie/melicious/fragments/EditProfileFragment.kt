@@ -48,10 +48,12 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        imageLauncher = registerForActivityResult(ActivityResultContracts.GetContent()){
-
-            Uri : Uri? -> Uri?.let{
-                requireContext().contentResolver.takePersistableUriPermission(it, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        val imageLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
+            uri?.let {
+                requireContext().contentResolver.takePersistableUriPermission(
+                    it,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                )
                 try {
                     val inputStream = requireContext().contentResolver.openInputStream(it)
                     val bitmap = BitmapFactory.decodeStream(inputStream)
@@ -62,6 +64,7 @@ class EditProfileFragment : Fragment() {
                 }
             }
         }
+
         savedInstanceState?.let {
             profilePic = it.getString("profilePicUri")
             profilePic?.let { uri ->
@@ -75,8 +78,7 @@ class EditProfileFragment : Fragment() {
         }
 
         binding.cameraEt.setOnClickListener{
-            imageLauncher.launch("image/*")
-
+            imageLauncher.launch(arrayOf("image/*"))
         }
 
         binding.update.setOnClickListener{
@@ -99,7 +101,7 @@ class EditProfileFragment : Fragment() {
         val email = binding.emailEt.text.toString().trim()
         val mobile = binding.mobileEt.text.toString().trim()
         val country = binding.countryEt.text.toString().trim()
-        val location = binding.dobEt.text.toString().trim()
+        val location = binding.locationEt.text.toString().trim()
 
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             binding.emailEt.error ="invalid email format"
@@ -122,21 +124,19 @@ class EditProfileFragment : Fragment() {
             userList?.let {
                 if (it.isNotEmpty()) {
                     val user = it[0]
-                    binding.fullname.text = user?.fullName
                     binding.fName.setText( user?.fullName)
                     binding.emailEt.setText(user?.emailAddress)
                     binding.mobileEt.setText(user?.mobile)
                     binding.countryEt.setText(user?.country)
-                    binding.dobEt.setText(user?.country)
+                    binding.locationEt.setText(user?.location1)
 
                     if (!user?.profileImgUri.isNullOrEmpty()) {
                         Glide.with(this)
-                            .load(Uri.parse(user?.profileImgUri)) // Replace with Glide for better handling
-                            .placeholder(R.drawable.default_profile_image) // optional placeholder
-                            .error(R.drawable.default_profile_image) // optional error image
+                            .load(Uri.parse(user?.profileImgUri))
+                            .placeholder(R.drawable.default_profile_image)
+                            .error(R.drawable.default_profile_image)
                             .into(binding.profilePic2)
                     } else {
-
                         binding.profilePic2.setImageResource(R.drawable.default_profile_image)
                     }
                 }

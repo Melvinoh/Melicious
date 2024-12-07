@@ -35,25 +35,26 @@
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="100dp"
                 android:fontFamily="@font/maven_pro"
+                android:text="categories"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                android:text="categories"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.358"
                 app:layout_constraintStart_toEndOf="@+id/backBtn"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.521" />
+                app:layout_constraintVertical_bias="0.529" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
         <EditText
             android:id="@+id/editTextText"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/orange_bd"
             android:drawableStart="@drawable/outline_search_24"
             android:drawablePadding="8dp"
@@ -66,7 +67,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp">
+            android:paddingBottom="120dp"
+            android:layout_marginTop="8dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

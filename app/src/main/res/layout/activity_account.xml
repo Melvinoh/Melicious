@@ -21,17 +21,17 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:foregroundGravity="center"
+        android:layout_gravity="bottom"
         app:menu="@menu/bottom_nav_menu"
         android:background="?android:attr/windowBackground"
-        app:itemRippleColor="@color/Grey"
         app:itemIconTint="@color/color_selctor"
         app:itemIconSize="24dp"
-        app:itemPaddingTop="24dp"
+        app:itemPaddingTop="20dp"
+        android:fitsSystemWindows="true"
+        app:labelVisibilityMode="labeled"
         app:itemTextColor="@color/color_selctor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

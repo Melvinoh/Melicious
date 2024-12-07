@@ -3,6 +3,8 @@ package com.foodie.melicious.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.foodie.melicious.Adaptor.FavouriteAdapter
@@ -44,9 +46,9 @@ class FavouritesActivity :  BaseActivity() {
         val bottomNav = binding.bottomNavigation
         bottomNav.selectedItemId = R.id.favourite_btn
 
-        bottomNav.setOnApplyWindowInsetsListener { view, insets ->
-            val systemBarsInsets = insets.systemGestureInsets
-            view.setPadding(0, 0, 0, systemBarsInsets.bottom + 16) // 16dp margin
+        ViewCompat.setOnApplyWindowInsetsListener(bottomNav) { view, insets ->
+            val gestureInsets = insets.getInsets(WindowInsetsCompat.Type.systemGestures())
+            view.setPadding(0, 0, 0, gestureInsets.bottom)
             insets
         }
 
